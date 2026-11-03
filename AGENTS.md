@@ -59,6 +59,7 @@ El backlog vive en Linear (proyecto "Frío Dorado", team WOR). El código y los 
 \- NO añadir paquetes NuGet sin preguntar.
 
 \- NO poner lógica de negocio en los formularios.
+\- Los formularios deben poder abrirse y editarse en el Designer de Visual Studio (mover y editar botones, labels, etc.). Los controles se crean en `FormX.Designer.cs` (`InitializeComponent`) y no por código en el constructor ni en `.cs`. No tocar a mano el código generado salvo que sea imprescindible.
 
 \- Antes de cambiar código, explicar en 2-3 frases qué se hará y por qué. Joel debe poder repetirlo con sus palabras.
 
