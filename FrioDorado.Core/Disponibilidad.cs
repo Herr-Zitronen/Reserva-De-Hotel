@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace FrioDorado.Core
+{
+    public static class Disponibilidad
+    {
+        public static bool EstaDisponible(int habitacion, DateTime entrada, DateTime salida, IEnumerable<Reserva> reservas)
+        {
+            return !reservas.Any(r =>
+                r.Habitacion == habitacion &&
+                r.Estado == EstadoReserva.Activa &&
+                entrada < r.Salida &&
+                salida > r.Entrada);
+        }
+    }
+}
