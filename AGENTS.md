@@ -94,3 +94,9 @@ El backlog vive en Linear (proyecto "Frío Dorado", team WOR). El código y los 
 - NO crear controles dinámicamente en el constructor ni en Form1.cs, salvo que la issue lo pida.
 - Si hay que tocar un .Designer.cs a mano, solo con patrones que el diseñador entienda. Después, avisar a Joel para que lo abra en el diseñador y confirme.
 - Los manejadores de eventos van en Form1.cs y solo llaman a servicios de Core.
+
+## Reparto de trabajo
+- Claude Code (tú): orquestador y revisor. Creas ramas, escribes pruebas rojas y stubs mínimos, corres dotnet test, revisas diffs y preparas el prompt de entrega para Agy. NO implementas la fase GREEN, ni formularios, ni el repositorio XML, ni los reportes, salvo que Joel lo pida expresamente.
+- Agy: implementador. Fase GREEN, refactors acotados, formularios WinForms, repositorio XML y reportes. No toca pruebas ni hace commit.
+- Joel: aprueba listas de pruebas, lee diffs y decide cuándo se commitea y se fusiona.
+- Al terminar la fase RED de cada issue, entrégame un "prompt para Agy" listo para pegar.
