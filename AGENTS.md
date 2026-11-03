@@ -59,7 +59,6 @@ El backlog vive en Linear (proyecto "Frío Dorado", team WOR). El código y los 
 \- NO añadir paquetes NuGet sin preguntar.
 
 \- NO poner lógica de negocio en los formularios.
-\- Los formularios deben poder abrirse y editarse en el Designer de Visual Studio (mover y editar botones, labels, etc.). Los controles se crean en `FormX.Designer.cs` (`InitializeComponent`) y no por código en el constructor ni en `.cs`. No tocar a mano el código generado salvo que sea imprescindible.
 
 \- Antes de cambiar código, explicar en 2-3 frases qué se hará y por qué. Joel debe poder repetirlo con sus palabras.
 
@@ -89,3 +88,9 @@ El backlog vive en Linear (proyecto "Frío Dorado", team WOR). El código y los 
 
 \- Issue cerrada en Linear.
 
+
+## Interfaz (WinForms)
+- Todos los controles se crean con el diseñador de Visual Studio y viven en Form1.Designer.cs (InitializeComponent). Joel debe poder moverlos y editarlos visualmente.
+- NO crear controles dinámicamente en el constructor ni en Form1.cs, salvo que la issue lo pida.
+- Si hay que tocar un .Designer.cs a mano, solo con patrones que el diseñador entienda. Después, avisar a Joel para que lo abra en el diseñador y confirme.
+- Los manejadores de eventos van en Form1.cs y solo llaman a servicios de Core.
