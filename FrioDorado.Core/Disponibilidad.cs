@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FrioDorado.Core
 {
@@ -7,7 +8,11 @@ namespace FrioDorado.Core
     {
         public static bool EstaDisponible(int habitacion, DateTime entrada, DateTime salida, IEnumerable<Reserva> reservas)
         {
-            throw new NotImplementedException();
+            return !reservas.Any(r =>
+                r.Habitacion == habitacion &&
+                r.Estado == EstadoReserva.Activa &&
+                entrada < r.Salida &&
+                salida > r.Entrada);
         }
     }
 }
