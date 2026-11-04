@@ -17,9 +17,9 @@ namespace FrioDorado.App
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabHabitaciones = new System.Windows.Forms.TabPage();
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
@@ -37,38 +37,24 @@ namespace FrioDorado.App
             this.colResDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAccionesReservas = new System.Windows.Forms.Panel();
-            this.btnNuevaReserva = new System.Windows.Forms.Button();
-            this.btnCancelarReserva = new System.Windows.Forms.Button();
+            this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtBuscarDocumento = new System.Windows.Forms.TextBox();
+            this.lblBuscarDocumento = new System.Windows.Forms.Label();
+            this.btnDisponibilidad = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
+            this.btnCancelarReserva = new System.Windows.Forms.Button();
+            this.btnNuevaReserva = new System.Windows.Forms.Button();
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.lblNombreHotel = new System.Windows.Forms.Label();
             this.tabPrincipal.SuspendLayout();
             this.tabHabitaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.tabReservas.SuspendLayout();
-            this.pnlAccionesReservas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
+            this.pnlAccionesReservas.SuspendLayout();
             this.pnlCabecera.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlCabecera
-            // 
-            this.pnlCabecera.Controls.Add(this.lblNombreHotel);
-            this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
-            this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(1350, 60);
-            this.pnlCabecera.TabIndex = 1;
-            // 
-            // lblNombreHotel
-            // 
-            this.lblNombreHotel.AutoSize = true;
-            this.lblNombreHotel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreHotel.Location = new System.Drawing.Point(16, 14);
-            this.lblNombreHotel.Name = "lblNombreHotel";
-            this.lblNombreHotel.Size = new System.Drawing.Size(263, 30);
-            this.lblNombreHotel.TabIndex = 0;
-            this.lblNombreHotel.Text = "Hotel Frío Dorado";
             // 
             // tabPrincipal
             // 
@@ -89,7 +75,7 @@ namespace FrioDorado.App
             this.tabHabitaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabHabitaciones.Name = "tabHabitaciones";
             this.tabHabitaciones.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabHabitaciones.Size = new System.Drawing.Size(1342, 736);
+            this.tabHabitaciones.Size = new System.Drawing.Size(1342, 676);
             this.tabHabitaciones.TabIndex = 0;
             this.tabHabitaciones.Text = "Habitaciones";
             this.tabHabitaciones.UseVisualStyleBackColor = true;
@@ -111,34 +97,37 @@ namespace FrioDorado.App
             this.dgvHabitaciones.ReadOnly = true;
             this.dgvHabitaciones.RowHeadersWidth = 62;
             this.dgvHabitaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHabitaciones.Size = new System.Drawing.Size(1334, 726);
+            this.dgvHabitaciones.Size = new System.Drawing.Size(1334, 666);
             this.dgvHabitaciones.TabIndex = 0;
             this.dgvHabitaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHabitaciones_CellContentClick);
-            //
+            // 
             // colHabNumero
-            //
+            // 
             this.colHabNumero.DataPropertyName = "Numero";
             this.colHabNumero.HeaderText = "Número";
             this.colHabNumero.MinimumWidth = 8;
             this.colHabNumero.Name = "colHabNumero";
-            //
+            this.colHabNumero.ReadOnly = true;
+            // 
             // colHabTipo
-            //
+            // 
             this.colHabTipo.DataPropertyName = "Tipo";
             this.colHabTipo.HeaderText = "Tipo";
             this.colHabTipo.MinimumWidth = 8;
             this.colHabTipo.Name = "colHabTipo";
-            //
+            this.colHabTipo.ReadOnly = true;
+            // 
             // colHabTarifaDiaria
-            //
+            // 
             this.colHabTarifaDiaria.DataPropertyName = "TarifaDiaria";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.colHabTarifaDiaria.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.colHabTarifaDiaria.DefaultCellStyle = dataGridViewCellStyle10;
             this.colHabTarifaDiaria.HeaderText = "Tarifa";
             this.colHabTarifaDiaria.MinimumWidth = 8;
             this.colHabTarifaDiaria.Name = "colHabTarifaDiaria";
-            //
+            this.colHabTarifaDiaria.ReadOnly = true;
+            // 
             // tabReservas
             // 
             this.tabReservas.Controls.Add(this.dgvReservas);
@@ -147,51 +136,10 @@ namespace FrioDorado.App
             this.tabReservas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabReservas.Name = "tabReservas";
             this.tabReservas.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabReservas.Size = new System.Drawing.Size(1342, 736);
+            this.tabReservas.Size = new System.Drawing.Size(1342, 676);
             this.tabReservas.TabIndex = 1;
             this.tabReservas.Text = "Reservas";
             this.tabReservas.UseVisualStyleBackColor = true;
-            // 
-            // pnlAccionesReservas
-            // 
-            this.pnlAccionesReservas.Controls.Add(this.btnReportes);
-            this.pnlAccionesReservas.Controls.Add(this.btnCancelarReserva);
-            this.pnlAccionesReservas.Controls.Add(this.btnNuevaReserva);
-            this.pnlAccionesReservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAccionesReservas.Location = new System.Drawing.Point(4, 5);
-            this.pnlAccionesReservas.Name = "pnlAccionesReservas";
-            this.pnlAccionesReservas.Size = new System.Drawing.Size(1334, 50);
-            this.pnlAccionesReservas.TabIndex = 1;
-            // 
-            // btnNuevaReserva
-            // 
-            this.btnNuevaReserva.Location = new System.Drawing.Point(10, 10);
-            this.btnNuevaReserva.Name = "btnNuevaReserva";
-            this.btnNuevaReserva.Size = new System.Drawing.Size(140, 30);
-            this.btnNuevaReserva.TabIndex = 0;
-            this.btnNuevaReserva.Text = "Nueva Reserva";
-            this.btnNuevaReserva.UseVisualStyleBackColor = true;
-            this.btnNuevaReserva.Click += new System.EventHandler(this.btnNuevaReserva_Click);
-            // 
-            // btnCancelarReserva
-            // 
-            this.btnCancelarReserva.Location = new System.Drawing.Point(160, 10);
-            this.btnCancelarReserva.Name = "btnCancelarReserva";
-            this.btnCancelarReserva.Size = new System.Drawing.Size(140, 30);
-            this.btnCancelarReserva.TabIndex = 1;
-            this.btnCancelarReserva.Text = "Cancelar Reserva";
-            this.btnCancelarReserva.UseVisualStyleBackColor = true;
-            this.btnCancelarReserva.Click += new System.EventHandler(this.btnCancelarReserva_Click);
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.Location = new System.Drawing.Point(310, 10);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(140, 30);
-            this.btnReportes.TabIndex = 2;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // dgvReservas
             // 
@@ -209,77 +157,196 @@ namespace FrioDorado.App
             this.colResDescuento,
             this.colResEstado});
             this.dgvReservas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReservas.Location = new System.Drawing.Point(4, 5);
+            this.dgvReservas.Location = new System.Drawing.Point(4, 55);
             this.dgvReservas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvReservas.Name = "dgvReservas";
             this.dgvReservas.ReadOnly = true;
             this.dgvReservas.RowHeadersWidth = 62;
             this.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReservas.Size = new System.Drawing.Size(1334, 726);
+            this.dgvReservas.Size = new System.Drawing.Size(1334, 616);
             this.dgvReservas.TabIndex = 0;
-            //
+            // 
             // colResCodigo
-            //
+            // 
             this.colResCodigo.DataPropertyName = "Codigo";
             this.colResCodigo.HeaderText = "Código";
             this.colResCodigo.MinimumWidth = 8;
             this.colResCodigo.Name = "colResCodigo";
-            //
+            this.colResCodigo.ReadOnly = true;
+            // 
             // colResHabitacion
-            //
+            // 
             this.colResHabitacion.DataPropertyName = "Habitacion";
             this.colResHabitacion.HeaderText = "Habitación";
             this.colResHabitacion.MinimumWidth = 8;
             this.colResHabitacion.Name = "colResHabitacion";
-            //
+            this.colResHabitacion.ReadOnly = true;
+            // 
             // colResCliente
-            //
+            // 
             this.colResCliente.DataPropertyName = "Cliente";
             this.colResCliente.HeaderText = "Cliente";
             this.colResCliente.MinimumWidth = 8;
             this.colResCliente.Name = "colResCliente";
-            //
+            this.colResCliente.ReadOnly = true;
+            // 
             // colResDocumento
-            //
+            // 
             this.colResDocumento.DataPropertyName = "Documento";
             this.colResDocumento.HeaderText = "Documento";
             this.colResDocumento.MinimumWidth = 8;
             this.colResDocumento.Name = "colResDocumento";
-            //
+            this.colResDocumento.ReadOnly = true;
+            // 
             // colResEntrada
-            //
+            // 
             this.colResEntrada.DataPropertyName = "Entrada";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colResEntrada.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle11.NullValue = null;
+            this.colResEntrada.DefaultCellStyle = dataGridViewCellStyle11;
             this.colResEntrada.HeaderText = "Entrada";
             this.colResEntrada.MinimumWidth = 8;
             this.colResEntrada.Name = "colResEntrada";
-            //
+            this.colResEntrada.ReadOnly = true;
+            // 
             // colResSalida
-            //
+            // 
             this.colResSalida.DataPropertyName = "Salida";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle3.NullValue = null;
-            this.colResSalida.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle12.NullValue = null;
+            this.colResSalida.DefaultCellStyle = dataGridViewCellStyle12;
             this.colResSalida.HeaderText = "Salida";
             this.colResSalida.MinimumWidth = 8;
             this.colResSalida.Name = "colResSalida";
-            //
+            this.colResSalida.ReadOnly = true;
+            // 
             // colResDescuento
-            //
+            // 
             this.colResDescuento.DataPropertyName = "Descuento";
             this.colResDescuento.HeaderText = "Descuento";
             this.colResDescuento.MinimumWidth = 8;
             this.colResDescuento.Name = "colResDescuento";
-            //
+            this.colResDescuento.ReadOnly = true;
+            // 
             // colResEstado
-            //
+            // 
             this.colResEstado.DataPropertyName = "Estado";
             this.colResEstado.HeaderText = "Estado";
             this.colResEstado.MinimumWidth = 8;
             this.colResEstado.Name = "colResEstado";
-            //
+            this.colResEstado.ReadOnly = true;
+            // 
+            // pnlAccionesReservas
+            // 
+            this.pnlAccionesReservas.Controls.Add(this.btnLimpiarBusqueda);
+            this.pnlAccionesReservas.Controls.Add(this.btnBuscar);
+            this.pnlAccionesReservas.Controls.Add(this.txtBuscarDocumento);
+            this.pnlAccionesReservas.Controls.Add(this.lblBuscarDocumento);
+            this.pnlAccionesReservas.Controls.Add(this.btnDisponibilidad);
+            this.pnlAccionesReservas.Controls.Add(this.btnReportes);
+            this.pnlAccionesReservas.Controls.Add(this.btnCancelarReserva);
+            this.pnlAccionesReservas.Controls.Add(this.btnNuevaReserva);
+            this.pnlAccionesReservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAccionesReservas.Location = new System.Drawing.Point(4, 5);
+            this.pnlAccionesReservas.Name = "pnlAccionesReservas";
+            this.pnlAccionesReservas.Size = new System.Drawing.Size(1334, 50);
+            this.pnlAccionesReservas.TabIndex = 1;
+            // 
+            // btnLimpiarBusqueda
+            // 
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(933, 10);
+            this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(80, 30);
+            this.btnLimpiarBusqueda.TabIndex = 7;
+            this.btnLimpiarBusqueda.Text = "Limpiar";
+            this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(847, 11);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(80, 30);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtBuscarDocumento
+            // 
+            this.txtBuscarDocumento.Location = new System.Drawing.Point(668, 14);
+            this.txtBuscarDocumento.Name = "txtBuscarDocumento";
+            this.txtBuscarDocumento.Size = new System.Drawing.Size(173, 26);
+            this.txtBuscarDocumento.TabIndex = 5;
+            // 
+            // lblBuscarDocumento
+            // 
+            this.lblBuscarDocumento.AutoSize = true;
+            this.lblBuscarDocumento.Location = new System.Drawing.Point(566, 16);
+            this.lblBuscarDocumento.Name = "lblBuscarDocumento";
+            this.lblBuscarDocumento.Size = new System.Drawing.Size(96, 20);
+            this.lblBuscarDocumento.TabIndex = 4;
+            this.lblBuscarDocumento.Text = "Documento:";
+            // 
+            // btnDisponibilidad
+            // 
+            this.btnDisponibilidad.Location = new System.Drawing.Point(276, 10);
+            this.btnDisponibilidad.Name = "btnDisponibilidad";
+            this.btnDisponibilidad.Size = new System.Drawing.Size(148, 30);
+            this.btnDisponibilidad.TabIndex = 2;
+            this.btnDisponibilidad.Text = "Disponibilidad";
+            this.btnDisponibilidad.UseVisualStyleBackColor = true;
+            this.btnDisponibilidad.Click += new System.EventHandler(this.btnDisponibilidad_Click);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Location = new System.Drawing.Point(447, 10);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(100, 30);
+            this.btnReportes.TabIndex = 3;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnCancelarReserva
+            // 
+            this.btnCancelarReserva.Location = new System.Drawing.Point(140, 10);
+            this.btnCancelarReserva.Name = "btnCancelarReserva";
+            this.btnCancelarReserva.Size = new System.Drawing.Size(130, 30);
+            this.btnCancelarReserva.TabIndex = 1;
+            this.btnCancelarReserva.Text = "Cancelar Reserva";
+            this.btnCancelarReserva.UseVisualStyleBackColor = true;
+            this.btnCancelarReserva.Click += new System.EventHandler(this.btnCancelarReserva_Click);
+            // 
+            // btnNuevaReserva
+            // 
+            this.btnNuevaReserva.Location = new System.Drawing.Point(10, 10);
+            this.btnNuevaReserva.Name = "btnNuevaReserva";
+            this.btnNuevaReserva.Size = new System.Drawing.Size(120, 30);
+            this.btnNuevaReserva.TabIndex = 0;
+            this.btnNuevaReserva.Text = "Nueva Reserva";
+            this.btnNuevaReserva.UseVisualStyleBackColor = true;
+            this.btnNuevaReserva.Click += new System.EventHandler(this.btnNuevaReserva_Click);
+            // 
+            // pnlCabecera
+            // 
+            this.pnlCabecera.Controls.Add(this.lblNombreHotel);
+            this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabecera.Name = "pnlCabecera";
+            this.pnlCabecera.Size = new System.Drawing.Size(1350, 60);
+            this.pnlCabecera.TabIndex = 1;
+            // 
+            // lblNombreHotel
+            // 
+            this.lblNombreHotel.AutoSize = true;
+            this.lblNombreHotel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreHotel.Location = new System.Drawing.Point(16, 14);
+            this.lblNombreHotel.Name = "lblNombreHotel";
+            this.lblNombreHotel.Size = new System.Drawing.Size(294, 45);
+            this.lblNombreHotel.TabIndex = 0;
+            this.lblNombreHotel.Text = "Hotel Frío Dorado";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -295,8 +362,9 @@ namespace FrioDorado.App
             this.tabHabitaciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).EndInit();
             this.tabReservas.ResumeLayout(false);
-            this.pnlAccionesReservas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
+            this.pnlAccionesReservas.ResumeLayout(false);
+            this.pnlAccionesReservas.PerformLayout();
             this.pnlCabecera.ResumeLayout(false);
             this.pnlCabecera.PerformLayout();
             this.ResumeLayout(false);
@@ -317,7 +385,12 @@ namespace FrioDorado.App
         private System.Windows.Forms.Panel pnlAccionesReservas;
         private System.Windows.Forms.Button btnNuevaReserva;
         private System.Windows.Forms.Button btnCancelarReserva;
+        private System.Windows.Forms.Button btnDisponibilidad;
         private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Label lblBuscarDocumento;
+        private System.Windows.Forms.TextBox txtBuscarDocumento;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnLimpiarBusqueda;
         private System.Windows.Forms.DataGridView dgvReservas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResHabitacion;

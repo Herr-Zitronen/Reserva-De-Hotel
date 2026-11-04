@@ -20,11 +20,17 @@ namespace FrioDorado.App
             dgvHabitaciones.AutoGenerateColumns = false;
             dgvReservas.AutoGenerateColumns = false;
 
-            Tema.AplicarEstilo(this);
-            Tema.EstiloCabecera(pnlCabecera, lblNombreHotel);
-            Tema.EstiloBoton(btnNuevaReserva, true);
-            Tema.EstiloBoton(btnCancelarReserva, false);
-            Tema.EstiloBoton(btnReportes, false);
+            if (!DesignMode)
+            {
+                Tema.AplicarEstilo(this);
+                Tema.EstiloCabecera(pnlCabecera, lblNombreHotel);
+                Tema.EstiloBoton(btnNuevaReserva, true);
+                Tema.EstiloBoton(btnCancelarReserva, false);
+                Tema.EstiloBoton(btnDisponibilidad, false);
+                Tema.EstiloBoton(btnReportes, false);
+                Tema.EstiloBoton(btnBuscar, true);
+                Tema.EstiloBoton(btnLimpiarBusqueda, false);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,6 +101,35 @@ namespace FrioDorado.App
             {
                 form.ShowDialog(this);
             }
+        }
+
+        private void btnDisponibilidad_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormDisponibilidad())
+            {
+                form.ShowDialog(this);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            var doc = txtBuscarDocumento.Text;
+            try
+            {
+                var resultados = Busqueda.PorDocumento(_reservaService.Reservas, doc);
+                dgvReservas.DataSource = null;
+                dgvReservas.DataSource = resultados.ToList();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            txtBuscarDocumento.Clear();
+            RefrescarReservas();
         }
 
         private void dgvHabitaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
