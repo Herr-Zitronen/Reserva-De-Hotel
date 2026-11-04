@@ -20,6 +20,12 @@ namespace FrioDorado.Core
 
         public void Guardar(IEnumerable<Habitacion> habitaciones, IEnumerable<Reserva> reservas)
         {
+            if (File.Exists(_ruta))
+            {
+                var rutaBak = _ruta + ".bak";
+                File.Copy(_ruta, rutaBak, true);
+            }
+
             var doc = new XDocument(
                 new XDeclaration("1.0", "utf-8", "yes"),
                 new XElement("hotel",

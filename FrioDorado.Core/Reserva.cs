@@ -22,17 +22,26 @@ namespace FrioDorado.Core
         }
 
         public int Habitacion { get; }
-        public DateTime Entrada { get; }
-        public DateTime Salida { get; }
+        public DateTime Entrada { get; private set; }
+        public DateTime Salida { get; private set; }
         public EstadoReserva Estado { get; private set; }
         public int Codigo { get; }
-        public string Cliente { get; }
-        public string Documento { get; }
-        public decimal Descuento { get; }
+        public string Cliente { get; private set; }
+        public string Documento { get; private set; }
+        public decimal Descuento { get; private set; }
 
         public void Cancelar()
         {
             Estado = EstadoReserva.Cancelada;
+        }
+
+        public void Actualizar(string cliente, string documento, DateTime entrada, DateTime salida, decimal descuento)
+        {
+            Cliente = cliente;
+            Documento = documento;
+            Entrada = entrada;
+            Salida = salida;
+            Descuento = descuento;
         }
     }
 }
