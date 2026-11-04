@@ -31,6 +31,17 @@ namespace FrioDorado.App
             this.pnlTotalIngresos = new System.Windows.Forms.Panel();
             this.lblTotalGeneral = new System.Windows.Forms.Label();
             this.lblTituloTotalGeneral = new System.Windows.Forms.Label();
+            this.tabMasReservadas = new System.Windows.Forms.TabPage();
+            this.dgvMasReservadas = new System.Windows.Forms.DataGridView();
+            this.tabCanceladas = new System.Windows.Forms.TabPage();
+            this.dgvCanceladas = new System.Windows.Forms.DataGridView();
+            this.pnlFiltroCanceladas = new System.Windows.Forms.Panel();
+            this.lblTotalCanceladas = new System.Windows.Forms.Label();
+            this.btnConsultarCanceladas = new System.Windows.Forms.Button();
+            this.dtpCanceladasHasta = new System.Windows.Forms.DateTimePicker();
+            this.lblCanceladasHasta = new System.Windows.Forms.Label();
+            this.dtpCanceladasDesde = new System.Windows.Forms.DateTimePicker();
+            this.lblCanceladasDesde = new System.Windows.Forms.Label();
             this.tabReportes.SuspendLayout();
             this.tabReservasPeriodo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteReservas)).BeginInit();
@@ -38,12 +49,19 @@ namespace FrioDorado.App
             this.tabIngresosTipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngresos)).BeginInit();
             this.pnlTotalIngresos.SuspendLayout();
+            this.tabMasReservadas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMasReservadas)).BeginInit();
+            this.tabCanceladas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCanceladas)).BeginInit();
+            this.pnlFiltroCanceladas.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabReportes
             // 
             this.tabReportes.Controls.Add(this.tabReservasPeriodo);
             this.tabReportes.Controls.Add(this.tabIngresosTipo);
+            this.tabReportes.Controls.Add(this.tabMasReservadas);
+            this.tabReportes.Controls.Add(this.tabCanceladas);
             this.tabReportes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabReportes.Location = new System.Drawing.Point(0, 0);
             this.tabReportes.Name = "tabReportes";
@@ -190,6 +208,125 @@ namespace FrioDorado.App
             this.lblTituloTotalGeneral.TabIndex = 0;
             this.lblTituloTotalGeneral.Text = "Total General:";
             // 
+            // tabMasReservadas
+            // 
+            this.tabMasReservadas.Controls.Add(this.dgvMasReservadas);
+            this.tabMasReservadas.Location = new System.Drawing.Point(4, 22);
+            this.tabMasReservadas.Name = "tabMasReservadas";
+            this.tabMasReservadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMasReservadas.Size = new System.Drawing.Size(842, 454);
+            this.tabMasReservadas.TabIndex = 2;
+            this.tabMasReservadas.Text = "Habitaciones más reservadas";
+            this.tabMasReservadas.UseVisualStyleBackColor = true;
+            // 
+            // dgvMasReservadas
+            // 
+            this.dgvMasReservadas.AllowUserToAddRows = false;
+            this.dgvMasReservadas.AllowUserToDeleteRows = false;
+            this.dgvMasReservadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMasReservadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMasReservadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMasReservadas.Location = new System.Drawing.Point(3, 3);
+            this.dgvMasReservadas.Name = "dgvMasReservadas";
+            this.dgvMasReservadas.ReadOnly = true;
+            this.dgvMasReservadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMasReservadas.Size = new System.Drawing.Size(836, 448);
+            this.dgvMasReservadas.TabIndex = 0;
+            // 
+            // tabCanceladas
+            // 
+            this.tabCanceladas.Controls.Add(this.dgvCanceladas);
+            this.tabCanceladas.Controls.Add(this.pnlFiltroCanceladas);
+            this.tabCanceladas.Location = new System.Drawing.Point(4, 22);
+            this.tabCanceladas.Name = "tabCanceladas";
+            this.tabCanceladas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCanceladas.Size = new System.Drawing.Size(842, 454);
+            this.tabCanceladas.TabIndex = 3;
+            this.tabCanceladas.Text = "Canceladas";
+            this.tabCanceladas.UseVisualStyleBackColor = true;
+            // 
+            // dgvCanceladas
+            // 
+            this.dgvCanceladas.AllowUserToAddRows = false;
+            this.dgvCanceladas.AllowUserToDeleteRows = false;
+            this.dgvCanceladas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCanceladas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCanceladas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCanceladas.Location = new System.Drawing.Point(3, 53);
+            this.dgvCanceladas.Name = "dgvCanceladas";
+            this.dgvCanceladas.ReadOnly = true;
+            this.dgvCanceladas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCanceladas.Size = new System.Drawing.Size(836, 398);
+            this.dgvCanceladas.TabIndex = 1;
+            // 
+            // pnlFiltroCanceladas
+            // 
+            this.pnlFiltroCanceladas.Controls.Add(this.lblTotalCanceladas);
+            this.pnlFiltroCanceladas.Controls.Add(this.btnConsultarCanceladas);
+            this.pnlFiltroCanceladas.Controls.Add(this.dtpCanceladasHasta);
+            this.pnlFiltroCanceladas.Controls.Add(this.lblCanceladasHasta);
+            this.pnlFiltroCanceladas.Controls.Add(this.dtpCanceladasDesde);
+            this.pnlFiltroCanceladas.Controls.Add(this.lblCanceladasDesde);
+            this.pnlFiltroCanceladas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlFiltroCanceladas.Location = new System.Drawing.Point(3, 3);
+            this.pnlFiltroCanceladas.Name = "pnlFiltroCanceladas";
+            this.pnlFiltroCanceladas.Size = new System.Drawing.Size(836, 50);
+            this.pnlFiltroCanceladas.TabIndex = 0;
+            // 
+            // lblTotalCanceladas
+            // 
+            this.lblTotalCanceladas.AutoSize = true;
+            this.lblTotalCanceladas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCanceladas.Location = new System.Drawing.Point(520, 17);
+            this.lblTotalCanceladas.Name = "lblTotalCanceladas";
+            this.lblTotalCanceladas.Size = new System.Drawing.Size(55, 15);
+            this.lblTotalCanceladas.TabIndex = 5;
+            this.lblTotalCanceladas.Text = "Total: 0";
+            // 
+            // btnConsultarCanceladas
+            // 
+            this.btnConsultarCanceladas.Location = new System.Drawing.Point(400, 12);
+            this.btnConsultarCanceladas.Name = "btnConsultarCanceladas";
+            this.btnConsultarCanceladas.Size = new System.Drawing.Size(90, 26);
+            this.btnConsultarCanceladas.TabIndex = 4;
+            this.btnConsultarCanceladas.Text = "Consultar";
+            this.btnConsultarCanceladas.UseVisualStyleBackColor = true;
+            this.btnConsultarCanceladas.Click += new System.EventHandler(this.btnConsultarCanceladas_Click);
+            // 
+            // dtpCanceladasHasta
+            // 
+            this.dtpCanceladasHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpCanceladasHasta.Location = new System.Drawing.Point(260, 15);
+            this.dtpCanceladasHasta.Name = "dtpCanceladasHasta";
+            this.dtpCanceladasHasta.Size = new System.Drawing.Size(120, 20);
+            this.dtpCanceladasHasta.TabIndex = 3;
+            // 
+            // lblCanceladasHasta
+            // 
+            this.lblCanceladasHasta.AutoSize = true;
+            this.lblCanceladasHasta.Location = new System.Drawing.Point(215, 18);
+            this.lblCanceladasHasta.Name = "lblCanceladasHasta";
+            this.lblCanceladasHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblCanceladasHasta.TabIndex = 2;
+            this.lblCanceladasHasta.Text = "Hasta:";
+            // 
+            // dtpCanceladasDesde
+            // 
+            this.dtpCanceladasDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpCanceladasDesde.Location = new System.Drawing.Point(75, 15);
+            this.dtpCanceladasDesde.Name = "dtpCanceladasDesde";
+            this.dtpCanceladasDesde.Size = new System.Drawing.Size(120, 20);
+            this.dtpCanceladasDesde.TabIndex = 1;
+            // 
+            // lblCanceladasDesde
+            // 
+            this.lblCanceladasDesde.AutoSize = true;
+            this.lblCanceladasDesde.Location = new System.Drawing.Point(25, 18);
+            this.lblCanceladasDesde.Name = "lblCanceladasDesde";
+            this.lblCanceladasDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblCanceladasDesde.TabIndex = 0;
+            this.lblCanceladasDesde.Text = "Desde:";
+            // 
             // FormReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +346,12 @@ namespace FrioDorado.App
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngresos)).EndInit();
             this.pnlTotalIngresos.ResumeLayout(false);
             this.pnlTotalIngresos.PerformLayout();
+            this.tabMasReservadas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMasReservadas)).EndInit();
+            this.tabCanceladas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCanceladas)).EndInit();
+            this.pnlFiltroCanceladas.ResumeLayout(false);
+            this.pnlFiltroCanceladas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -229,5 +372,16 @@ namespace FrioDorado.App
         private System.Windows.Forms.Panel pnlTotalIngresos;
         private System.Windows.Forms.Label lblTituloTotalGeneral;
         private System.Windows.Forms.Label lblTotalGeneral;
+        private System.Windows.Forms.TabPage tabMasReservadas;
+        private System.Windows.Forms.DataGridView dgvMasReservadas;
+        private System.Windows.Forms.TabPage tabCanceladas;
+        private System.Windows.Forms.DataGridView dgvCanceladas;
+        private System.Windows.Forms.Panel pnlFiltroCanceladas;
+        private System.Windows.Forms.Label lblCanceladasDesde;
+        private System.Windows.Forms.DateTimePicker dtpCanceladasDesde;
+        private System.Windows.Forms.Label lblCanceladasHasta;
+        private System.Windows.Forms.DateTimePicker dtpCanceladasHasta;
+        private System.Windows.Forms.Button btnConsultarCanceladas;
+        private System.Windows.Forms.Label lblTotalCanceladas;
     }
 }
