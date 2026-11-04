@@ -83,6 +83,14 @@ namespace FrioDorado.App
             }
         }
 
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormReportes())
+            {
+                form.ShowDialog(this);
+            }
+        }
+
         private void dgvHabitaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

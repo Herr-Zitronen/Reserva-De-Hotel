@@ -39,6 +39,7 @@ namespace FrioDorado.App
             this.pnlAccionesReservas = new System.Windows.Forms.Panel();
             this.btnNuevaReserva = new System.Windows.Forms.Button();
             this.btnCancelarReserva = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.tabPrincipal.SuspendLayout();
             this.tabHabitaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
@@ -131,6 +132,7 @@ namespace FrioDorado.App
             // 
             // pnlAccionesReservas
             // 
+            this.pnlAccionesReservas.Controls.Add(this.btnReportes);
             this.pnlAccionesReservas.Controls.Add(this.btnCancelarReserva);
             this.pnlAccionesReservas.Controls.Add(this.btnNuevaReserva);
             this.pnlAccionesReservas.Dock = System.Windows.Forms.DockStyle.Top;
@@ -158,6 +160,16 @@ namespace FrioDorado.App
             this.btnCancelarReserva.Text = "Cancelar Reserva";
             this.btnCancelarReserva.UseVisualStyleBackColor = true;
             this.btnCancelarReserva.Click += new System.EventHandler(this.btnCancelarReserva_Click);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Location = new System.Drawing.Point(310, 10);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(140, 30);
+            this.btnReportes.TabIndex = 2;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // dgvReservas
             // 
@@ -278,6 +290,7 @@ namespace FrioDorado.App
         private System.Windows.Forms.Panel pnlAccionesReservas;
         private System.Windows.Forms.Button btnNuevaReserva;
         private System.Windows.Forms.Button btnCancelarReserva;
+        private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.DataGridView dgvReservas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResHabitacion;
