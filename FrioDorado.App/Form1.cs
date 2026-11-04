@@ -19,6 +19,12 @@ namespace FrioDorado.App
             InitializeComponent();
             dgvHabitaciones.AutoGenerateColumns = false;
             dgvReservas.AutoGenerateColumns = false;
+
+            Tema.AplicarEstilo(this);
+            Tema.EstiloCabecera(pnlCabecera, lblNombreHotel);
+            Tema.EstiloBoton(btnNuevaReserva, true);
+            Tema.EstiloBoton(btnCancelarReserva, false);
+            Tema.EstiloBoton(btnReportes, false);
         }
 
         private void Form1_Load(object sender, EventArgs e)

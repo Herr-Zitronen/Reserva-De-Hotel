@@ -29,6 +29,9 @@ namespace FrioDorado.App
         public FormReportes()
         {
             InitializeComponent();
+
+            Tema.AplicarEstilo(this);
+            Tema.EstiloBoton(btnConsultar, true);
         }
 
         private void FormReportes_Load(object sender, EventArgs e)

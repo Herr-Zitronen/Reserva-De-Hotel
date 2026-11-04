@@ -40,24 +40,46 @@ namespace FrioDorado.App
             this.btnNuevaReserva = new System.Windows.Forms.Button();
             this.btnCancelarReserva = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
+            this.pnlCabecera = new System.Windows.Forms.Panel();
+            this.lblNombreHotel = new System.Windows.Forms.Label();
             this.tabPrincipal.SuspendLayout();
             this.tabHabitaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.tabReservas.SuspendLayout();
             this.pnlAccionesReservas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
+            this.pnlCabecera.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlCabecera
+            // 
+            this.pnlCabecera.Controls.Add(this.lblNombreHotel);
+            this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.pnlCabecera.Name = "pnlCabecera";
+            this.pnlCabecera.Size = new System.Drawing.Size(1350, 60);
+            this.pnlCabecera.TabIndex = 1;
+            // 
+            // lblNombreHotel
+            // 
+            this.lblNombreHotel.AutoSize = true;
+            this.lblNombreHotel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreHotel.Location = new System.Drawing.Point(16, 14);
+            this.lblNombreHotel.Name = "lblNombreHotel";
+            this.lblNombreHotel.Size = new System.Drawing.Size(263, 30);
+            this.lblNombreHotel.TabIndex = 0;
+            this.lblNombreHotel.Text = "Hotel Frío Dorado";
             // 
             // tabPrincipal
             // 
             this.tabPrincipal.Controls.Add(this.tabHabitaciones);
             this.tabPrincipal.Controls.Add(this.tabReservas);
             this.tabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tabPrincipal.Location = new System.Drawing.Point(0, 60);
             this.tabPrincipal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.SelectedIndex = 0;
-            this.tabPrincipal.Size = new System.Drawing.Size(1350, 769);
+            this.tabPrincipal.Size = new System.Drawing.Size(1350, 709);
             this.tabPrincipal.TabIndex = 0;
             // 
             // tabHabitaciones
@@ -264,6 +286,7 @@ namespace FrioDorado.App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 769);
             this.Controls.Add(this.tabPrincipal);
+            this.Controls.Add(this.pnlCabecera);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Frío Dorado - Reservas";
@@ -274,12 +297,16 @@ namespace FrioDorado.App
             this.tabReservas.ResumeLayout(false);
             this.pnlAccionesReservas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
+            this.pnlCabecera.ResumeLayout(false);
+            this.pnlCabecera.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlCabecera;
+        private System.Windows.Forms.Label lblNombreHotel;
         private System.Windows.Forms.TabControl tabPrincipal;
         private System.Windows.Forms.TabPage tabHabitaciones;
         private System.Windows.Forms.DataGridView dgvHabitaciones;
