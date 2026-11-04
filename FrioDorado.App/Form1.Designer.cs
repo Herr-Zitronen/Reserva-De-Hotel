@@ -17,9 +17,9 @@ namespace FrioDorado.App
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabHabitaciones = new System.Windows.Forms.TabPage();
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
@@ -121,9 +121,9 @@ namespace FrioDorado.App
             // colHabTarifaDiaria
             // 
             this.colHabTarifaDiaria.DataPropertyName = "TarifaDiaria";
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.colHabTarifaDiaria.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle28.Format = "N2";
+            dataGridViewCellStyle28.NullValue = null;
+            this.colHabTarifaDiaria.DefaultCellStyle = dataGridViewCellStyle28;
             this.colHabTarifaDiaria.HeaderText = "Tarifa";
             this.colHabTarifaDiaria.MinimumWidth = 8;
             this.colHabTarifaDiaria.Name = "colHabTarifaDiaria";
@@ -202,9 +202,9 @@ namespace FrioDorado.App
             // colResEntrada
             // 
             this.colResEntrada.DataPropertyName = "Entrada";
-            dataGridViewCellStyle14.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle14.NullValue = null;
-            this.colResEntrada.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle29.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle29.NullValue = null;
+            this.colResEntrada.DefaultCellStyle = dataGridViewCellStyle29;
             this.colResEntrada.HeaderText = "Entrada";
             this.colResEntrada.MinimumWidth = 8;
             this.colResEntrada.Name = "colResEntrada";
@@ -213,9 +213,9 @@ namespace FrioDorado.App
             // colResSalida
             // 
             this.colResSalida.DataPropertyName = "Salida";
-            dataGridViewCellStyle15.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle15.NullValue = null;
-            this.colResSalida.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle30.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle30.NullValue = null;
+            this.colResSalida.DefaultCellStyle = dataGridViewCellStyle30;
             this.colResSalida.HeaderText = "Salida";
             this.colResSalida.MinimumWidth = 8;
             this.colResSalida.Name = "colResSalida";
@@ -256,7 +256,7 @@ namespace FrioDorado.App
             // 
             // btnLimpiarBusqueda
             // 
-            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(983, 11);
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(1039, 13);
             this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             this.btnLimpiarBusqueda.Size = new System.Drawing.Size(95, 30);
             this.btnLimpiarBusqueda.TabIndex = 8;
@@ -266,7 +266,7 @@ namespace FrioDorado.App
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(890, 11);
+            this.btnBuscar.Location = new System.Drawing.Point(958, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 30);
             this.btnBuscar.TabIndex = 7;
@@ -276,7 +276,7 @@ namespace FrioDorado.App
             // 
             // txtBuscarDocumento
             // 
-            this.txtBuscarDocumento.Location = new System.Drawing.Point(745, 14);
+            this.txtBuscarDocumento.Location = new System.Drawing.Point(812, 13);
             this.txtBuscarDocumento.Name = "txtBuscarDocumento";
             this.txtBuscarDocumento.Size = new System.Drawing.Size(140, 26);
             this.txtBuscarDocumento.TabIndex = 6;
@@ -284,7 +284,7 @@ namespace FrioDorado.App
             // lblBuscarDocumento
             // 
             this.lblBuscarDocumento.AutoSize = true;
-            this.lblBuscarDocumento.Location = new System.Drawing.Point(645, 16);
+            this.lblBuscarDocumento.Location = new System.Drawing.Point(701, 15);
             this.lblBuscarDocumento.Name = "lblBuscarDocumento";
             this.lblBuscarDocumento.Size = new System.Drawing.Size(96, 20);
             this.lblBuscarDocumento.TabIndex = 5;
@@ -292,9 +292,9 @@ namespace FrioDorado.App
             // 
             // btnReportes
             // 
-            this.btnReportes.Location = new System.Drawing.Point(540, 10);
+            this.btnReportes.Location = new System.Drawing.Point(584, 8);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(95, 30);
+            this.btnReportes.Size = new System.Drawing.Size(111, 34);
             this.btnReportes.TabIndex = 4;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
@@ -304,7 +304,7 @@ namespace FrioDorado.App
             // 
             this.btnDisponibilidad.Location = new System.Drawing.Point(415, 10);
             this.btnDisponibilidad.Name = "btnDisponibilidad";
-            this.btnDisponibilidad.Size = new System.Drawing.Size(120, 30);
+            this.btnDisponibilidad.Size = new System.Drawing.Size(163, 30);
             this.btnDisponibilidad.TabIndex = 3;
             this.btnDisponibilidad.Text = "Disponibilidad";
             this.btnDisponibilidad.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@ namespace FrioDorado.App
             // 
             this.btnCancelarReserva.Location = new System.Drawing.Point(280, 10);
             this.btnCancelarReserva.Name = "btnCancelarReserva";
-            this.btnCancelarReserva.Size = new System.Drawing.Size(130, 30);
+            this.btnCancelarReserva.Size = new System.Drawing.Size(129, 30);
             this.btnCancelarReserva.TabIndex = 2;
             this.btnCancelarReserva.Text = "Cancelar Reserva";
             this.btnCancelarReserva.UseVisualStyleBackColor = true;
