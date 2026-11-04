@@ -14,5 +14,17 @@ namespace FrioDorado.Core
                 entrada < r.Salida &&
                 salida > r.Entrada);
         }
+
+        public static IReadOnlyList<Habitacion> HabitacionesLibres(IEnumerable<Habitacion> habitaciones, IEnumerable<Reserva> reservas, DateTime entrada, DateTime salida)
+        {
+            if (salida <= entrada)
+            {
+                throw new ArgumentException("La fecha de salida debe ser posterior a la fecha de entrada.");
+            }
+
+            return habitaciones
+                .Where(h => EstaDisponible(h.Numero, entrada, salida, reservas))
+                .ToList();
+        }
     }
 }
