@@ -45,6 +45,11 @@ namespace FrioDorado.Core
             return reserva;
         }
 
+        public void Modificar(int codigo, string cliente, string documento, DateTime entrada, DateTime salida, decimal descuento)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Cancelar(int codigo)
         {
             var reserva = _reservas.FirstOrDefault(r => r.Codigo == codigo);
