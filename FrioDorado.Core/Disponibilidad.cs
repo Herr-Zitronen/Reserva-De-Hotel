@@ -14,5 +14,10 @@ namespace FrioDorado.Core
                 entrada < r.Salida &&
                 salida > r.Entrada);
         }
+
+        public static IReadOnlyList<Habitacion> HabitacionesLibres(IEnumerable<Habitacion> habitaciones, IEnumerable<Reserva> reservas, DateTime entrada, DateTime salida)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
