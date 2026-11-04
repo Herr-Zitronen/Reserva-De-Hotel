@@ -17,9 +17,9 @@ namespace FrioDorado.App
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabHabitaciones = new System.Windows.Forms.TabPage();
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
@@ -41,9 +41,10 @@ namespace FrioDorado.App
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarDocumento = new System.Windows.Forms.TextBox();
             this.lblBuscarDocumento = new System.Windows.Forms.Label();
-            this.btnDisponibilidad = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
+            this.btnDisponibilidad = new System.Windows.Forms.Button();
             this.btnCancelarReserva = new System.Windows.Forms.Button();
+            this.btnModificarReserva = new System.Windows.Forms.Button();
             this.btnNuevaReserva = new System.Windows.Forms.Button();
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.lblNombreHotel = new System.Windows.Forms.Label();
@@ -120,9 +121,9 @@ namespace FrioDorado.App
             // colHabTarifaDiaria
             // 
             this.colHabTarifaDiaria.DataPropertyName = "TarifaDiaria";
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.colHabTarifaDiaria.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.colHabTarifaDiaria.DefaultCellStyle = dataGridViewCellStyle13;
             this.colHabTarifaDiaria.HeaderText = "Tarifa";
             this.colHabTarifaDiaria.MinimumWidth = 8;
             this.colHabTarifaDiaria.Name = "colHabTarifaDiaria";
@@ -201,9 +202,9 @@ namespace FrioDorado.App
             // colResEntrada
             // 
             this.colResEntrada.DataPropertyName = "Entrada";
-            dataGridViewCellStyle11.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle11.NullValue = null;
-            this.colResEntrada.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle14.NullValue = null;
+            this.colResEntrada.DefaultCellStyle = dataGridViewCellStyle14;
             this.colResEntrada.HeaderText = "Entrada";
             this.colResEntrada.MinimumWidth = 8;
             this.colResEntrada.Name = "colResEntrada";
@@ -212,9 +213,9 @@ namespace FrioDorado.App
             // colResSalida
             // 
             this.colResSalida.DataPropertyName = "Salida";
-            dataGridViewCellStyle12.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle12.NullValue = null;
-            this.colResSalida.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle15.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle15.NullValue = null;
+            this.colResSalida.DefaultCellStyle = dataGridViewCellStyle15;
             this.colResSalida.HeaderText = "Salida";
             this.colResSalida.MinimumWidth = 8;
             this.colResSalida.Name = "colResSalida";
@@ -242,9 +243,10 @@ namespace FrioDorado.App
             this.pnlAccionesReservas.Controls.Add(this.btnBuscar);
             this.pnlAccionesReservas.Controls.Add(this.txtBuscarDocumento);
             this.pnlAccionesReservas.Controls.Add(this.lblBuscarDocumento);
-            this.pnlAccionesReservas.Controls.Add(this.btnDisponibilidad);
             this.pnlAccionesReservas.Controls.Add(this.btnReportes);
+            this.pnlAccionesReservas.Controls.Add(this.btnDisponibilidad);
             this.pnlAccionesReservas.Controls.Add(this.btnCancelarReserva);
+            this.pnlAccionesReservas.Controls.Add(this.btnModificarReserva);
             this.pnlAccionesReservas.Controls.Add(this.btnNuevaReserva);
             this.pnlAccionesReservas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAccionesReservas.Location = new System.Drawing.Point(4, 5);
@@ -254,69 +256,79 @@ namespace FrioDorado.App
             // 
             // btnLimpiarBusqueda
             // 
-            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(933, 10);
+            this.btnLimpiarBusqueda.Location = new System.Drawing.Point(983, 11);
             this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
-            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(80, 30);
-            this.btnLimpiarBusqueda.TabIndex = 7;
+            this.btnLimpiarBusqueda.Size = new System.Drawing.Size(95, 30);
+            this.btnLimpiarBusqueda.TabIndex = 8;
             this.btnLimpiarBusqueda.Text = "Limpiar";
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
             this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(847, 11);
+            this.btnBuscar.Location = new System.Drawing.Point(890, 11);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(80, 30);
-            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Size = new System.Drawing.Size(75, 30);
+            this.btnBuscar.TabIndex = 7;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscarDocumento
             // 
-            this.txtBuscarDocumento.Location = new System.Drawing.Point(668, 14);
+            this.txtBuscarDocumento.Location = new System.Drawing.Point(745, 14);
             this.txtBuscarDocumento.Name = "txtBuscarDocumento";
-            this.txtBuscarDocumento.Size = new System.Drawing.Size(173, 26);
-            this.txtBuscarDocumento.TabIndex = 5;
+            this.txtBuscarDocumento.Size = new System.Drawing.Size(140, 26);
+            this.txtBuscarDocumento.TabIndex = 6;
             // 
             // lblBuscarDocumento
             // 
             this.lblBuscarDocumento.AutoSize = true;
-            this.lblBuscarDocumento.Location = new System.Drawing.Point(566, 16);
+            this.lblBuscarDocumento.Location = new System.Drawing.Point(645, 16);
             this.lblBuscarDocumento.Name = "lblBuscarDocumento";
             this.lblBuscarDocumento.Size = new System.Drawing.Size(96, 20);
-            this.lblBuscarDocumento.TabIndex = 4;
+            this.lblBuscarDocumento.TabIndex = 5;
             this.lblBuscarDocumento.Text = "Documento:";
-            // 
-            // btnDisponibilidad
-            // 
-            this.btnDisponibilidad.Location = new System.Drawing.Point(276, 10);
-            this.btnDisponibilidad.Name = "btnDisponibilidad";
-            this.btnDisponibilidad.Size = new System.Drawing.Size(148, 30);
-            this.btnDisponibilidad.TabIndex = 2;
-            this.btnDisponibilidad.Text = "Disponibilidad";
-            this.btnDisponibilidad.UseVisualStyleBackColor = true;
-            this.btnDisponibilidad.Click += new System.EventHandler(this.btnDisponibilidad_Click);
             // 
             // btnReportes
             // 
-            this.btnReportes.Location = new System.Drawing.Point(447, 10);
+            this.btnReportes.Location = new System.Drawing.Point(540, 10);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(100, 30);
-            this.btnReportes.TabIndex = 3;
+            this.btnReportes.Size = new System.Drawing.Size(95, 30);
+            this.btnReportes.TabIndex = 4;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
+            // btnDisponibilidad
+            // 
+            this.btnDisponibilidad.Location = new System.Drawing.Point(415, 10);
+            this.btnDisponibilidad.Name = "btnDisponibilidad";
+            this.btnDisponibilidad.Size = new System.Drawing.Size(120, 30);
+            this.btnDisponibilidad.TabIndex = 3;
+            this.btnDisponibilidad.Text = "Disponibilidad";
+            this.btnDisponibilidad.UseVisualStyleBackColor = true;
+            this.btnDisponibilidad.Click += new System.EventHandler(this.btnDisponibilidad_Click);
+            // 
             // btnCancelarReserva
             // 
-            this.btnCancelarReserva.Location = new System.Drawing.Point(140, 10);
+            this.btnCancelarReserva.Location = new System.Drawing.Point(280, 10);
             this.btnCancelarReserva.Name = "btnCancelarReserva";
             this.btnCancelarReserva.Size = new System.Drawing.Size(130, 30);
-            this.btnCancelarReserva.TabIndex = 1;
+            this.btnCancelarReserva.TabIndex = 2;
             this.btnCancelarReserva.Text = "Cancelar Reserva";
             this.btnCancelarReserva.UseVisualStyleBackColor = true;
             this.btnCancelarReserva.Click += new System.EventHandler(this.btnCancelarReserva_Click);
+            // 
+            // btnModificarReserva
+            // 
+            this.btnModificarReserva.Location = new System.Drawing.Point(135, 10);
+            this.btnModificarReserva.Name = "btnModificarReserva";
+            this.btnModificarReserva.Size = new System.Drawing.Size(140, 30);
+            this.btnModificarReserva.TabIndex = 1;
+            this.btnModificarReserva.Text = "Modificar Reserva";
+            this.btnModificarReserva.UseVisualStyleBackColor = true;
+            this.btnModificarReserva.Click += new System.EventHandler(this.btnModificarReserva_Click);
             // 
             // btnNuevaReserva
             // 
@@ -384,6 +396,7 @@ namespace FrioDorado.App
         private System.Windows.Forms.TabPage tabReservas;
         private System.Windows.Forms.Panel pnlAccionesReservas;
         private System.Windows.Forms.Button btnNuevaReserva;
+        private System.Windows.Forms.Button btnModificarReserva;
         private System.Windows.Forms.Button btnCancelarReserva;
         private System.Windows.Forms.Button btnDisponibilidad;
         private System.Windows.Forms.Button btnReportes;
