@@ -26,12 +26,31 @@ namespace FrioDorado.App
             public decimal Ingresos { get; set; }
         }
 
+        public class MasReservadasView
+        {
+            public int Habitacion { get; set; }
+            public string Tipo { get; set; }
+            public int Reservas { get; set; }
+        }
+
+        public class ReservaCanceladaView
+        {
+            public int Codigo { get; set; }
+            public int Habitacion { get; set; }
+            public string Cliente { get; set; }
+            public string Documento { get; set; }
+            public DateTime Entrada { get; set; }
+            public DateTime Salida { get; set; }
+            public EstadoReserva Estado { get; set; }
+        }
+
         public FormReportes()
         {
             InitializeComponent();
 
             Tema.AplicarEstilo(this);
             Tema.EstiloBoton(btnConsultar, true);
+            Tema.EstiloBoton(btnConsultarCanceladas, true);
         }
 
         private void FormReportes_Load(object sender, EventArgs e)
@@ -40,8 +59,13 @@ namespace FrioDorado.App
             dtpDesde.Value = new DateTime(hoy.Year, hoy.Month, 1);
             dtpHasta.Value = new DateTime(hoy.Year, hoy.Month, DateTime.DaysInMonth(hoy.Year, hoy.Month));
 
+            dtpCanceladasDesde.Value = new DateTime(hoy.Year, hoy.Month, 1);
+            dtpCanceladasHasta.Value = new DateTime(hoy.Year, hoy.Month, DateTime.DaysInMonth(hoy.Year, hoy.Month));
+
             ConsultarReservasPeriodo();
             CargarIngresosPorTipo();
+            CargarHabitacionesMasReservadas();
+            ConsultarCanceladasPeriodo();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -150,6 +174,114 @@ namespace FrioDorado.App
                 dgvIngresos.Columns["Ingresos"].HeaderText = "Ingresos";
                 dgvIngresos.Columns["Ingresos"].DefaultCellStyle.Format = "N2";
             }
+        }
+
+        private void CargarHabitacionesMasReservadas()
+        {
+            var rutaXml = Path.Combine(Application.StartupPath, "datos.xml");
+            var datos = new RepositorioXml(rutaXml).Cargar();
+
+            var reporte = Reportes.HabitacionesMasReservadas(datos.Reservas, datos.Habitaciones);
+
+            var listaView = reporte.Select(r => new MasReservadasView
+            {
+                Habitacion = r.Habitacion,
+                Tipo = r.Tipo.ToString(),
+                Reservas = r.Reservas
+            }).ToList();
+
+            dgvMasReservadas.AutoGenerateColumns = true;
+            dgvMasReservadas.DataSource = listaView;
+
+            AjustarColumnasMasReservadas();
+        }
+
+        private void AjustarColumnasMasReservadas()
+        {
+            dgvMasReservadas.ReadOnly = true;
+            dgvMasReservadas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (dgvMasReservadas.Columns["Habitacion"] != null)
+                dgvMasReservadas.Columns["Habitacion"].HeaderText = "Habitación";
+
+            if (dgvMasReservadas.Columns["Tipo"] != null)
+                dgvMasReservadas.Columns["Tipo"].HeaderText = "Tipo";
+
+            if (dgvMasReservadas.Columns["Reservas"] != null)
+                dgvMasReservadas.Columns["Reservas"].HeaderText = "Reservas";
+        }
+
+        private void btnConsultarCanceladas_Click(object sender, EventArgs e)
+        {
+            ConsultarCanceladasPeriodo();
+        }
+
+        private void ConsultarCanceladasPeriodo()
+        {
+            var desde = dtpCanceladasDesde.Value.Date;
+            var hasta = dtpCanceladasHasta.Value.Date;
+
+            if (hasta < desde)
+            {
+                MessageBox.Show("La fecha 'Hasta' no puede ser anterior a la fecha 'Desde'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var rutaXml = Path.Combine(Application.StartupPath, "datos.xml");
+            var datos = new RepositorioXml(rutaXml).Cargar();
+
+            var canceladas = Reportes.ReservasCanceladasPorPeriodo(datos.Reservas, desde, hasta);
+
+            var listaView = canceladas.Select(r => new ReservaCanceladaView
+            {
+                Codigo = r.Codigo,
+                Habitacion = r.Habitacion,
+                Cliente = r.Cliente,
+                Documento = r.Documento,
+                Entrada = r.Entrada,
+                Salida = r.Salida,
+                Estado = r.Estado
+            }).ToList();
+
+            dgvCanceladas.AutoGenerateColumns = true;
+            dgvCanceladas.DataSource = listaView;
+
+            AjustarColumnasCanceladas();
+
+            lblTotalCanceladas.Text = $"Total: {canceladas.Count}";
+        }
+
+        private void AjustarColumnasCanceladas()
+        {
+            dgvCanceladas.ReadOnly = true;
+            dgvCanceladas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (dgvCanceladas.Columns["Codigo"] != null)
+                dgvCanceladas.Columns["Codigo"].HeaderText = "Código";
+
+            if (dgvCanceladas.Columns["Habitacion"] != null)
+                dgvCanceladas.Columns["Habitacion"].HeaderText = "Habitación";
+
+            if (dgvCanceladas.Columns["Cliente"] != null)
+                dgvCanceladas.Columns["Cliente"].HeaderText = "Cliente";
+
+            if (dgvCanceladas.Columns["Documento"] != null)
+                dgvCanceladas.Columns["Documento"].HeaderText = "Documento";
+
+            if (dgvCanceladas.Columns["Entrada"] != null)
+            {
+                dgvCanceladas.Columns["Entrada"].HeaderText = "Entrada";
+                dgvCanceladas.Columns["Entrada"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+
+            if (dgvCanceladas.Columns["Salida"] != null)
+            {
+                dgvCanceladas.Columns["Salida"].HeaderText = "Salida";
+                dgvCanceladas.Columns["Salida"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+
+            if (dgvCanceladas.Columns["Estado"] != null)
+                dgvCanceladas.Columns["Estado"].HeaderText = "Estado";
         }
     }
 }
