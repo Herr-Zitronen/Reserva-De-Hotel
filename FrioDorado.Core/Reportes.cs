@@ -52,12 +52,47 @@ namespace FrioDorado.Core
 
         public static IReadOnlyList<ReservasPorHabitacion> HabitacionesMasReservadas(IEnumerable<Reserva> reservas, IEnumerable<Habitacion> habitaciones)
         {
-            throw new NotImplementedException();
+            var habitacionesPorNumero = habitaciones.ToDictionary(h => h.Numero);
+
+            foreach (var reserva in reservas.Where(r => r.Estado == EstadoReserva.Activa))
+            {
+                if (!habitacionesPorNumero.ContainsKey(reserva.Habitacion))
+                {
+                    throw new InvalidOperationException($"No se encontró la habitación con número {reserva.Habitacion}.");
+                }
+            }
+
+            var conteoPorHabitacion = reservas
+                .Where(r => r.Estado == EstadoReserva.Activa)
+                .GroupBy(r => r.Habitacion)
+                .ToDictionary(g => g.Key, g => g.Count());
+
+            return habitaciones
+                .Select(h =>
+                {
+                    conteoPorHabitacion.TryGetValue(h.Numero, out var cantidad);
+                    return new ReservasPorHabitacion(h.Numero, h.Tipo, cantidad);
+                })
+                .OrderByDescending(r => r.Reservas)
+                .ThenBy(r => r.Habitacion)
+                .ToList();
         }
 
         public static IReadOnlyList<Reserva> ReservasCanceladasPorPeriodo(IEnumerable<Reserva> reservas, DateTime desde, DateTime hasta)
         {
-            throw new NotImplementedException();
+            if (hasta.Date < desde.Date)
+            {
+                throw new ArgumentException("La fecha 'hasta' no puede ser anterior a la fecha 'desde'.");
+            }
+
+            var desdeDate = desde.Date;
+            var hastaDate = hasta.Date;
+
+            return reservas
+                .Where(r => r.Estado == EstadoReserva.Cancelada &&
+                            r.Entrada.Date <= hastaDate &&
+                            r.Salida.Date > desdeDate)
+                .ToList();
         }
     }
 }
