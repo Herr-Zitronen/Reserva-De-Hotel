@@ -36,10 +36,14 @@ namespace FrioDorado.App
             this.colResSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colResEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlAccionesReservas = new System.Windows.Forms.Panel();
+            this.btnNuevaReserva = new System.Windows.Forms.Button();
+            this.btnCancelarReserva = new System.Windows.Forms.Button();
             this.tabPrincipal.SuspendLayout();
             this.tabHabitaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.tabReservas.SuspendLayout();
+            this.pnlAccionesReservas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +119,7 @@ namespace FrioDorado.App
             // tabReservas
             // 
             this.tabReservas.Controls.Add(this.dgvReservas);
+            this.tabReservas.Controls.Add(this.pnlAccionesReservas);
             this.tabReservas.Location = new System.Drawing.Point(4, 29);
             this.tabReservas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabReservas.Name = "tabReservas";
@@ -123,6 +128,36 @@ namespace FrioDorado.App
             this.tabReservas.TabIndex = 1;
             this.tabReservas.Text = "Reservas";
             this.tabReservas.UseVisualStyleBackColor = true;
+            // 
+            // pnlAccionesReservas
+            // 
+            this.pnlAccionesReservas.Controls.Add(this.btnCancelarReserva);
+            this.pnlAccionesReservas.Controls.Add(this.btnNuevaReserva);
+            this.pnlAccionesReservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlAccionesReservas.Location = new System.Drawing.Point(4, 5);
+            this.pnlAccionesReservas.Name = "pnlAccionesReservas";
+            this.pnlAccionesReservas.Size = new System.Drawing.Size(1334, 50);
+            this.pnlAccionesReservas.TabIndex = 1;
+            // 
+            // btnNuevaReserva
+            // 
+            this.btnNuevaReserva.Location = new System.Drawing.Point(10, 10);
+            this.btnNuevaReserva.Name = "btnNuevaReserva";
+            this.btnNuevaReserva.Size = new System.Drawing.Size(140, 30);
+            this.btnNuevaReserva.TabIndex = 0;
+            this.btnNuevaReserva.Text = "Nueva Reserva";
+            this.btnNuevaReserva.UseVisualStyleBackColor = true;
+            this.btnNuevaReserva.Click += new System.EventHandler(this.btnNuevaReserva_Click);
+            // 
+            // btnCancelarReserva
+            // 
+            this.btnCancelarReserva.Location = new System.Drawing.Point(160, 10);
+            this.btnCancelarReserva.Name = "btnCancelarReserva";
+            this.btnCancelarReserva.Size = new System.Drawing.Size(140, 30);
+            this.btnCancelarReserva.TabIndex = 1;
+            this.btnCancelarReserva.Text = "Cancelar Reserva";
+            this.btnCancelarReserva.UseVisualStyleBackColor = true;
+            this.btnCancelarReserva.Click += new System.EventHandler(this.btnCancelarReserva_Click);
             // 
             // dgvReservas
             // 
@@ -225,6 +260,7 @@ namespace FrioDorado.App
             this.tabHabitaciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).EndInit();
             this.tabReservas.ResumeLayout(false);
+            this.pnlAccionesReservas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
 
@@ -239,6 +275,9 @@ namespace FrioDorado.App
         private System.Windows.Forms.DataGridViewTextBoxColumn colHabTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHabTarifaDiaria;
         private System.Windows.Forms.TabPage tabReservas;
+        private System.Windows.Forms.Panel pnlAccionesReservas;
+        private System.Windows.Forms.Button btnNuevaReserva;
+        private System.Windows.Forms.Button btnCancelarReserva;
         private System.Windows.Forms.DataGridView dgvReservas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResHabitacion;
