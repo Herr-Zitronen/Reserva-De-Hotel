@@ -49,5 +49,15 @@ namespace FrioDorado.Core
 
             return ingresos;
         }
+
+        public static IReadOnlyList<ReservasPorHabitacion> HabitacionesMasReservadas(IEnumerable<Reserva> reservas, IEnumerable<Habitacion> habitaciones)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static IReadOnlyList<Reserva> ReservasCanceladasPorPeriodo(IEnumerable<Reserva> reservas, DateTime desde, DateTime hasta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
