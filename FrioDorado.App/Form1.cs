@@ -25,6 +25,7 @@ namespace FrioDorado.App
                 Tema.AplicarEstilo(this);
                 Tema.EstiloCabecera(pnlCabecera, lblNombreHotel);
                 Tema.EstiloBoton(btnNuevaReserva, true);
+                Tema.EstiloBoton(btnModificarReserva, false);
                 Tema.EstiloBoton(btnCancelarReserva, false);
                 Tema.EstiloBoton(btnDisponibilidad, false);
                 Tema.EstiloBoton(btnReportes, false);
@@ -55,6 +56,24 @@ namespace FrioDorado.App
         private void btnNuevaReserva_Click(object sender, EventArgs e)
         {
             using (var form = new FormNuevaReserva(_reservaService, _habitaciones))
+            {
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    _repositorio.Guardar(_habitaciones, _reservaService.Reservas);
+                    RefrescarReservas();
+                }
+            }
+        }
+
+        private void btnModificarReserva_Click(object sender, EventArgs e)
+        {
+            if (dgvReservas.CurrentRow == null || !(dgvReservas.CurrentRow.DataBoundItem is Reserva reservaSeleccionada))
+            {
+                MessageBox.Show("Debe seleccionar una reserva de la tabla para modificar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (var form = new FormNuevaReserva(_reservaService, _habitaciones, reservaSeleccionada))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
