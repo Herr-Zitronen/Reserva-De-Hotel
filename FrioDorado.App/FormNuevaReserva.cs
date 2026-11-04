@@ -30,6 +30,10 @@ namespace FrioDorado.App
         {
             InitializeComponent();
 
+            Tema.AplicarEstilo(this);
+            Tema.EstiloBoton(btnCrear, true);
+            Tema.EstiloBoton(btnCerrar, false);
+
             _reservaService = reservaService;
             _habitaciones = habitaciones;
 
