@@ -16,5 +16,9 @@ namespace FrioDorado.Core
         public DateTime Entrada { get; }
         public DateTime Salida { get; }
         public EstadoReserva Estado { get; }
+        public int Codigo { get; }
+        public string Cliente { get; }
+        public string Documento { get; }
+        public decimal Descuento { get; }
     }
 }
